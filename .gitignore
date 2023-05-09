@@ -1,13 +1,27 @@
-*.tar
-*.tar.*
-*.jar
-*.exe
-*.msi
-*.zip
-*.tgz
-*.log
-*.log.*
-*.sig
+# Ansible runtime and backups
+*.original
+*.tmp
+*.bkp
+*.retry
+*.*~
 
-pkg/
-src/
+# Tower runtime roles 
+roles/**
+!roles/requirements.yml
+
+# Try tyo avoid any plain-text passwords 
+*pwd*
+*pass*
+*password*
+*.txt
+
+# Exclude all binaries
+*.bin
+*.jar
+*.tar
+*.zip
+*.gzip
+*.tgz
+
+# Ignore Ansible venv
+ansible-venv/
