@@ -23,5 +23,6 @@ roles/**
 *.gzip
 *.tgz
 
-# Ignore Ansible venv
+# Ignore Ansible venv and vault pass
 ansible-venv/
+ansible_vault
