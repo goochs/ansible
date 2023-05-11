@@ -1,3 +1,6 @@
+**/.DS_Store
+**/.icloud
+
 # Ansible runtime and backups
 *.original
 *.tmp
