@@ -1,0 +1,35 @@
+---
+- name: Bootstrap Server
+  hosts: all
+  gather_facts: true
+  become: true
+
+  vars:
+    ssh_key: "your_ssh_public_key"
+    programs:
+      - sys-process/htop
+      - app-editors/neovim
+      - app-containers/docker 
+      - app-containers/docker-cli
+      - app-containers/docker-compose
+
+  tasks:
+    - name: Ensure user exists
+      user:
+        name: seth 
+        groups: wheel
+        append: true
+        create_home: true
+      become: true
+
+    - name: Add SSH key to authorized_hosts
+      authorized_key:
+        user: seth
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/labkey.pub') }}"
+      become: true
+
+    - name: Install required programs using Portage
+      portage:
+        name: "{{ programs }}"
+        state: present
+      become: true

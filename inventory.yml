@@ -1,0 +1,31 @@
+all:
+  hosts:
+    opnsense:
+    garbagefire:
+    storepod:
+    sethdesk:
+    seth-mbp:
+    oracle-vps:
+      ansible_host: 132.145.188.14
+  children:
+    servers:
+      hosts:
+        garbagefire:
+        storepod:
+    workstations:
+      hosts:
+        sethdesk:
+        seth-mbp:
+    network:
+      hosts:
+        opnsense:
+    prem:
+      hosts:
+        opnsense:    
+        garbagefire:
+        storepod:
+        sethdesk:
+        seth-mbp:
+    remote:
+      hosts:
+        oracle-vps:
